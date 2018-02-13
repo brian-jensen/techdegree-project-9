@@ -1,0 +1,96 @@
+//══════════════════════════════════════
+//    				 PLACEHOLDERS
+//══════════════════════════════════════
+
+%base-styles {
+  font-size: $base__font-size;
+  font-family: $font-family--primary;
+  line-height: ($base__line-height/$base__font-size);
+  font-weight: $font-weight--light;
+}
+
+%full-width {
+  width: 100%;
+}
+
+%block-element {
+  display: block;
+}
+
+%flex-element {
+  display: flex;
+}
+
+%inline-block-element {
+  display: inline-block;
+}
+
+%inline-flex-element {
+  display: inline-flex;
+}
+
+%center-element {
+  margin: 0 auto;
+}
+
+%center-text {
+  text-align: center;
+}
+
+%button-inset {
+  box-shadow: 0 0 3px 0 rgba($dove-gray, .8) inset;
+}
+
+%condensed {
+  @include column-spacing(em(25px));
+}
+
+%rounded-corners {
+  border-radius: $border--rounded-corners;
+}
+
+%image-presets {
+  @extend %block-element;
+  @extend %center-element;
+  max-width: 100%;
+}
+
+%buttons {
+  @extend %block-element;
+  @extend %center-element;
+  @extend %rounded-corners;
+  @extend %center-text;
+  @include row-spacing($margin-top: em(29px), $padding-top: em(16px));
+  width: 95%;
+  border: 0;
+  color: $white;
+  font-size: em(15px);
+  font-weight: $font-weight--medium;
+  text-transform: uppercase;
+}
+
+%heading-h1 {
+  line-height: em(20px);
+  font-size: em(32px);
+  color: $color-primary;
+}
+
+%base-link-styles {
+  @extend %full-width;
+  text-decoration: none;
+}
+
+%nav-item-link {
+  @extend %center-text;
+  @extend %rounded-corners;
+  @extend %block-element;
+  @extend %base-link-styles;
+  color: palette(gray, dark);
+  font-weight: $font-weight--light;
+}
+
+%content-link {
+  @extend %base-link-styles;
+  color: $color-primary;
+  font-weight: $font-weight--medium;
+}

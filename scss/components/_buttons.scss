@@ -1,0 +1,16 @@
+//══════════════════════════════════════
+//    				  BUTTONS
+//══════════════════════════════════════
+@each $btn-type, $color in $pie-colors {
+  .btn--#{$btn-type} {
+    background-color: $color;
+    &:hover {
+      @extend %button-inset;
+      background-color: darken($color, 12%);
+    }
+  }
+}
+
+[class*="btn--"] {
+  @extend %buttons;
+}
