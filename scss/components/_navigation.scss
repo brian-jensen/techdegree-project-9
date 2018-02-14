@@ -1,3 +1,19 @@
 //══════════════════════════════════════
 //              NAVIGATION STYLES
 //══════════════════════════════════════
+
+.mobile-nav {
+  background-color: $mulled-wine;
+  @include row-spacing(null, null, 15px, 8px);
+  @include column-spacing(null, null, 15px);
+   div {
+     @extend %center-element;
+   }
+}
+
+.dashboard-icon,
+.members-icon,
+.visits-icon,
+.settings-icon {
+  @extend %nav-icons;
+}

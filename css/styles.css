@@ -5,16 +5,28 @@
   line-height: 1.5;
   font-weight: 300; }
 
+header, header h3 {
+  color: #f2f2f2;
+  font-weight: 200; }
+
+.dashboard-icon,
+.members-icon,
+.visits-icon,
+.settings-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: #a6a6b9; }
+
 [class*="btn--"], .container {
   display: block; }
 
 .grid__row {
   display: flex; }
 
-[class*="btn--"], .container {
+[class*="btn--"], .container, .mobile-nav div {
   margin: 0 auto; }
 
-[class*="btn--"] {
+[class*="btn--"], header {
   text-align: center; }
 
 .btn--phones:hover, .btn--tablet:hover, .btn--desktop:hover {
@@ -22,6 +34,9 @@
 
 [class*="btn--"] {
   border-radius: 5px; }
+
+header img {
+  border-radius: 50%; }
 
 [class*="btn--"] {
   margin-top: 2.0714285714em;
@@ -477,5 +492,38 @@ ul {
     flex-basis: 91.5697674419%; }
   .grid__col--12 {
     flex-basis: 100%; } }
+
+.mobile-nav {
+  background-color: #4d4c72;
+  padding-top: 15px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+header {
+  background-color: #7477bf;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  header h3 {
+    margin-top: 3px;
+    margin-bottom: 0; }
+    header h3 span {
+      font-weight: 700;
+      color: #fff; }
+  header img {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle; }
+  header .logged-in {
+    padding-left: 10px; }
+  header .bell {
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: #fff; }
 
 /*# sourceMappingURL=styles.css.map */

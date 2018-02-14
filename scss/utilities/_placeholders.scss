@@ -9,6 +9,17 @@
   font-weight: $font-weight--light;
 }
 
+%header-base-style {
+  color: darken($white, 5%);
+  font-weight: $font-weight--thin;
+}
+
+%nav-icons {
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: $spun-pearl;
+}
+
 %full-width {
   width: 100%;
 }
@@ -47,6 +58,10 @@
 
 %rounded-corners {
   border-radius: $border--rounded-corners;
+}
+
+%circle {
+  border-radius: $border--circle;
 }
 
 %image-presets {
