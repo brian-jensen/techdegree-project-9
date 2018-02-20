@@ -4,6 +4,8 @@
 
 .container {
   @include block-centered(block);
+  max-width: $container-max-width;
+  background-color: $white;
 }
 
 .grid__row {

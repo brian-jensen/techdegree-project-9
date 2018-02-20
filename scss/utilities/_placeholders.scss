@@ -5,8 +5,7 @@
 %base-styles {
   font-size: $base__font-size;
   font-family: $font-family--primary;
-  line-height: ($base__line-height/$base__font-size);
-  font-weight: $font-weight--light;
+  font-weight: $font-weight--thin;
 }
 
 %header-base-style {
@@ -95,14 +94,6 @@
   text-decoration: none;
 }
 
-%nav-item-link {
-  @extend %center-text;
-  @extend %rounded-corners;
-  @extend %block-element;
-  @extend %base-link-styles;
-  color: palette(gray, dark);
-  font-weight: $font-weight--light;
-}
 
 %content-link {
   @extend %base-link-styles;

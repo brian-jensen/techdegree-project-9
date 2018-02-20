@@ -1,0 +1,44 @@
+//══════════════════════════════════════
+//              DASHBOARD STYLES
+//══════════════════════════════════════
+
+.dashboard-header {
+  height: 50px;
+  .dashboard-heading {
+    flex-grow: 1;
+    margin: auto;
+    h3 {
+      color: $dove-gray;
+      font-weight: inherit;
+      font-size: $base__font-size - 2;
+      text-align: center;
+    }
+  }
+}
+
+.dashboard-search {
+  background-color: $alabaster;
+  border-left: $border--primary;
+  border-bottom: $border--primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 70%;
+  input {
+    border: $border--primary;
+    height: 28px;
+    flex-basis: 80%;
+    @extend %rounded-corners;
+    @include column-spacing(null, null, 5px);
+    background-image: url('../../icons/search-indicator-magnifying-glass.svg');
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: 99% 50%;
+    &::placeholder {
+      color: darken($white, 35%);
+      font-weight: $font-weight--thin;
+      font-size: 10px;
+    }
+  }
+}
+  

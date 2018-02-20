@@ -9,7 +9,7 @@ header {
   @extend %header-base-style;
   @extend %center-text;
     h3 {
-      @include row-spacing(3px,0);
+      @include row-spacing(6px,0);
       @extend %header-base-style;
         span {
           font-weight: $font-weight--ultra-bold;

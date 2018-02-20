@@ -16,8 +16,6 @@ $font-weight--ultra-bold : 700;
 
 // Typography Defaults
 $base__font-size    : 14px;
-$base__line-height  : 21px;
-$base__letter-space : 1px;
 
 //// Descriptive Colors
   // Base Colors
@@ -49,14 +47,15 @@ $pie-colors: (
 	desktop : $color-primary,
 );
 
-// Border Radius
+// Borders
 $border--rounded-corners : 5px;
 $border--circle : 50%;
+$border--primary : 1px solid $silver;
 
 // Grid Global variables
 $g-col-count		 		 : 12;
 $g-col-width		 		 : 50px;
-$g-gutter-width			 : 8px;
+$g-gutter-width			 : 0px;
 $container-max-width : 1200px;
 
 // Media Query Map

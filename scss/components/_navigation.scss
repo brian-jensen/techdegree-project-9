@@ -4,7 +4,7 @@
 
 .mobile-nav {
   background-color: $mulled-wine;
-  @include row-spacing(null, null, 15px, 8px);
+  @include row-spacing(null, null, 12px, 8px);
   @include column-spacing(null, null, 15px);
    div {
      @extend %center-element;
