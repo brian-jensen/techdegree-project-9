@@ -8,31 +8,42 @@ header {
   @include column-spacing(null, null, 15px);
   @extend %header-base-style;
   @extend %center-text;
-    h3 {
-      @include row-spacing(6px,0);
-      @extend %header-base-style;
-        span {
-          font-weight: $font-weight--ultra-bold;
-          color: $white;
-        }
+  h3 {
+    @include row-spacing(6px,0);
+    @extend %header-base-style;
+    span {
+      font-weight: $font-weight--ultra-bold;
+      color: $white;
     }
-    img {
-      width: $base__font-size * 2;
-      height: $base__font-size * 2;
-      vertical-align: middle;
-      @extend %circle;
-    }
-    .logged-in {
-      @include column-spacing(null, null, 10px, null);
-    }
-    .bell {
-      position: fixed;
-      top: 5px;
-      right: 10px;
-      width: 1.3rem;
-      height: 1.3rem;
-      fill: $white;
-    }
+  }
 }
+
+.active-user {
+  padding-left: 10px;
+  border-left: 1px solid $mulled-wine;
+  img {
+    width: $base__font-size * 2;
+    height: $base__font-size * 2;
+    vertical-align: middle;
+    @extend %circle;
+  }
+  .logged-in {
+    padding-left: 10px;
+  }
+}
+
+.bell-container {
+  display: inline-flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15px;
+  .bell {
+    align-self: center;
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: $white;
+  }
+}   
 
 

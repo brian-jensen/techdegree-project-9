@@ -34,7 +34,7 @@ header, header h3 {
 [class*="btn--"], .dashboard-search input {
   border-radius: 5px; }
 
-header img {
+.active-user img {
   border-radius: 50%; }
 
 [class*="btn--"] {
@@ -518,16 +518,25 @@ header {
     header h3 span {
       font-weight: 700;
       color: #fff; }
-  header img {
+
+.active-user {
+  padding-left: 10px;
+  border-left: 1px solid #4d4c72; }
+  .active-user img {
     width: 28px;
     height: 28px;
     vertical-align: middle; }
-  header .logged-in {
+  .active-user .logged-in {
     padding-left: 10px; }
-  header .bell {
-    position: fixed;
-    top: 5px;
-    right: 10px;
+
+.bell-container {
+  display: inline-flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15px; }
+  .bell-container .bell {
+    align-self: center;
     width: 1.3rem;
     height: 1.3rem;
     fill: #fff; }
@@ -560,7 +569,7 @@ header {
     background-image: url("../../icons/search-indicator-magnifying-glass.svg");
     background-repeat: no-repeat;
     background-size: 12px 12px;
-    background-position: 99% 50%; }
+    background-position: 98% 50%; }
     .dashboard-search input::placeholder {
       color: #a6a6a6;
       font-weight: 200;
