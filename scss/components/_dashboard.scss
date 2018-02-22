@@ -8,9 +8,7 @@
     flex-grow: 1;
     margin: auto;
     h3 {
-      color: $dove-gray;
-      font-weight: inherit;
-      font-size: $base__font-size - 2;
+      @extend %dashboard-h3;
       text-align: center;
     }
   }
@@ -42,3 +40,25 @@
   }
 }
   
+.dashboard-content {
+  @include column-spacing(null, null, 20px);
+  @include row-spacing(null, null, 15px);
+  [class*="col--5"] {
+   margin: auto;
+   flex-grow: 1;
+  }
+  h3 {
+    @extend %dashboard-h3;
+    text-transform: uppercase;
+  }
+  .traffic-list-container {
+    flex-grow: 1;
+    .traffic-list {
+      display: flex;
+      justify-content: space-between;
+      li {
+        @extend %dashboard-h3;
+      }
+    }
+  }
+}

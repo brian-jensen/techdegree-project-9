@@ -8,6 +8,11 @@ header, header h3 {
   color: #f2f2f2;
   font-weight: 200; }
 
+.dashboard-header .dashboard-heading h3, .dashboard-content h3, .dashboard-content .traffic-list-container .traffic-list li {
+  color: #666;
+  font-weight: 200;
+  font-size: 12px; }
+
 .dashboard-icon,
 .members-icon,
 .visits-icon,
@@ -547,9 +552,6 @@ header {
     flex-grow: 1;
     margin: auto; }
     .dashboard-header .dashboard-heading h3 {
-      color: #666;
-      font-weight: inherit;
-      font-size: 12px;
       text-align: center; }
 
 .dashboard-search {
@@ -574,5 +576,21 @@ header {
       color: #a6a6a6;
       font-weight: 200;
       font-size: 10px; }
+
+.dashboard-content {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+  .dashboard-content [class*="col--5"] {
+    margin: auto;
+    flex-grow: 1; }
+  .dashboard-content h3 {
+    text-transform: uppercase; }
+  .dashboard-content .traffic-list-container {
+    flex-grow: 1; }
+    .dashboard-content .traffic-list-container .traffic-list {
+      display: flex;
+      justify-content: space-between; }
 
 /*# sourceMappingURL=styles.css.map */

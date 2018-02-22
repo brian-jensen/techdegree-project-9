@@ -13,6 +13,12 @@
   font-weight: $font-weight--thin;
 }
 
+%dashboard-h3 {
+  color: $dove-gray;
+  font-weight: $font-weight--thin;
+  font-size: $base__font-size - 2;
+}
+
 %nav-icons {
   width: 1.8rem;
   height: 1.8rem;
