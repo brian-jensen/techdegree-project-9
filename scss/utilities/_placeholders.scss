@@ -14,15 +14,69 @@
 }
 
 %dashboard-h3 {
-  color: $dove-gray;
-  font-weight: $font-weight--thin;
+  color: darken($dove-gray, 5%);
+  font-weight: $font-weight--medium;
   font-size: $base__font-size - 2;
+  @include mq(tablet){
+    font-size: $base__font-size;
+  }
+}
+
+%user-icon {
+  @extend %circle;
+  vertical-align: middle;
+  width: $base__font-size * 2;
+  height: $base__font-size * 2;
+}
+
+%dashboard-h3-caps{
+  @extend %dashboard-h3;
+  text-transform: uppercase;
 }
 
 %nav-icons {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 52px;
   fill: $spun-pearl;
+  border: 3px solid $mulled-wine;
+  height: 100%;
+  @include row-spacing(null, null, 10px);
+  @include column-spacing(null, null, 10px);
+  &:hover {
+    fill: $white;
+    border-bottom: 3px solid $pastel-green;
+  }
+}
+
+%form-focus {
+  transition: box-shadow linear .5s;
+  box-shadow: 1px 1px 3px $color-shadow;
+}
+
+%input-defaults {
+  height: 35px;
+  @extend %rounded-corners;
+  @include column-spacing(null, null, 5px);
+  border: $border--primary;
+  background-image: url('../../icons/search-indicator-magnifying-glass.svg');
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: 98% 50%;
+  transition: box-shadow ease-out .5s;
+  &::placeholder {
+    color: darken($white, 35%);
+    font-weight: $font-weight--thin;
+    font-size: 10px;
+    @include mq(landscape) {
+      font-size: .7rem;
+    }
+  }
+  &:focus {
+    @extend %form-focus;
+  }
+  @include mq(tablet) {
+    @include column-spacing(null, null, 10px);
+    background-size: 14px 14px;
+  }
 }
 
 %full-width {

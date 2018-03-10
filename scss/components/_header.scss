@@ -8,6 +8,10 @@ header {
   @include column-spacing(null, null, 15px);
   @extend %header-base-style;
   @extend %center-text;
+  @include mq(tablet) {
+    text-align: left;
+    @include column-spacing(null, null, 20px);
+  }
   h3 {
     @include row-spacing(6px,0);
     @extend %header-base-style;
@@ -15,35 +19,44 @@ header {
       font-weight: $font-weight--ultra-bold;
       color: $white;
     }
+    @include mq(tablet) {
+      font-size: 1.4rem;
+    }
+  }
+  .user-alert {
+    display: flex;
+    .bell-container {
+      display: inline-flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 15px;
+      flex-grow: 1;
+      @include mq(tablet) {
+        flex-grow: 0;
+      }
+      .bell {
+        align-self: center;
+        width: 1.3rem;
+        height: 1.3rem;
+        fill: $white;
+      }
+    }   
+    .active-user {
+      padding-left: 10px;
+      border-left: 1px solid darken($color-primary, 5%);
+      @include mq(tablet) {
+        flex-grow: 1;
+        @include row-spacing(null,null,5px);
+      }
+      img {
+        @extend %user-icon;
+      }
+      .logged-in {
+        padding-left: 10px;
+      }
+    }  
   }
 }
 
-.active-user {
-  padding-left: 10px;
-  border-left: 1px solid $mulled-wine;
-  img {
-    width: $base__font-size * 2;
-    height: $base__font-size * 2;
-    vertical-align: middle;
-    @extend %circle;
-  }
-  .logged-in {
-    padding-left: 10px;
-  }
-}
-
-.bell-container {
-  display: inline-flex;
-  flex-grow: 1;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 15px;
-  .bell {
-    align-self: center;
-    width: 1.3rem;
-    height: 1.3rem;
-    fill: $white;
-  }
-}   
 
 
