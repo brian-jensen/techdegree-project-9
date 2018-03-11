@@ -8,12 +8,12 @@ header, header h3 {
   color: #f2f2f2;
   font-weight: 200; }
 
-.traffic-content h3, .daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3, .dashboard-header .dashboard-heading h3, .traffic-content .traffic-list-container .traffic-list li {
+.traffic-content h3, #daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3, .dashboard-header .dashboard-heading h3, .traffic-content .traffic-list-container .traffic-list li {
   color: #595959;
   font-weight: 400;
   font-size: 12px; }
   @media only screen and (min-width: 768px) {
-    .traffic-content h3, .daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3, .dashboard-header .dashboard-heading h3, .traffic-content .traffic-list-container .traffic-list li {
+    .traffic-content h3, #daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3, .dashboard-header .dashboard-heading h3, .traffic-content .traffic-list-container .traffic-list li {
       font-size: 14px; } }
 
 header .user-alert .active-user img, #member-activity img {
@@ -21,7 +21,7 @@ header .user-alert .active-user img, #member-activity img {
   width: 28px;
   height: 28px; }
 
-.traffic-content h3, .daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3 {
+.traffic-content h3, #daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3 {
   text-transform: uppercase; }
 
 .dashboard-icon,
@@ -42,6 +42,13 @@ header .user-alert .active-user img, #member-activity img {
   .settings-icon:hover {
     fill: #fff;
     border-bottom: 3px solid #85db81; }
+    @media only screen and (min-width: 768px) {
+      .dashboard-icon:hover,
+      .members-icon:hover,
+      .visits-icon:hover,
+      .settings-icon:hover {
+        border: 3px solid #4d4c72;
+        border-left: 3px solid #85db81; } }
 
 .dashboard-search input:focus, #message-settings .message-user input:focus, #message-settings .message-user textarea:focus, #message-settings .settings select:focus {
   transition: box-shadow linear .5s;
@@ -70,8 +77,8 @@ header .user-alert .active-user img, #member-activity img {
       padding-right: 10px;
       background-size: 14px 14px; } }
 
-.daily-pie .daily-traffic,
-.daily-pie .mobile-users {
+#daily-pie .daily-traffic,
+#daily-pie .mobile-users {
   width: 100%; }
 
 [class*="btn--"], .container {
@@ -511,6 +518,10 @@ ul {
   list-style: none;
   padding: 0; }
 
+@media only screen and (min-width: 768px) {
+  section {
+    margin-left: 75px; } }
+
 .btn--phones {
   background-color: #73b1bf; }
   .btn--phones:hover {
@@ -564,6 +575,18 @@ ul {
   background-color: #4d4c72;
   padding-left: 15px;
   padding-right: 15px; }
+  @media only screen and (min-width: 768px) {
+    .mobile-nav {
+      position: fixed;
+      height: 100vh;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 75px;
+      padding-top: 90px;
+      top: 0px; }
+      .mobile-nav div.grid__col--3 {
+        flex-basis: 10%; } }
 
 header {
   background-color: #7477bf;
@@ -574,6 +597,8 @@ header {
   @media only screen and (min-width: 768px) {
     header {
       text-align: left;
+      position: relative;
+      z-index: 100;
       padding-left: 20px;
       padding-right: 20px; } }
   header h3 {
@@ -707,28 +732,28 @@ main {
     display: block;
     margin: 0 auto; }
 
-.daily-pie {
+#daily-pie {
   margin-top: 20px; }
-  .daily-pie .daily-traffic,
-  .daily-pie .mobile-users {
+  #daily-pie .daily-traffic,
+  #daily-pie .mobile-users {
     padding-left: 20px;
     padding-right: 20px; }
-    .daily-pie .daily-traffic img,
-    .daily-pie .mobile-users img {
+    #daily-pie .daily-traffic img,
+    #daily-pie .mobile-users img {
       max-width: 100%;
       display: block;
       margin: 0 auto; }
-  .daily-pie .daily-traffic {
+  #daily-pie .daily-traffic {
     padding-bottom: 10px;
     border-top: 1px solid #cacaca;
     border-bottom: 1px solid #cacaca; }
     @media only screen and (min-width: 768px) {
-      .daily-pie .daily-traffic {
+      #daily-pie .daily-traffic {
         padding-top: 20px; } }
-  .daily-pie .mobile-users {
+  #daily-pie .mobile-users {
     border-bottom: 1px solid #cacaca; }
     @media only screen and (min-width: 768px) {
-      .daily-pie .mobile-users {
+      #daily-pie .mobile-users {
         border-top: 1px solid #cacaca;
         border-left: 1px solid #cacaca;
         padding-top: 20px; } }

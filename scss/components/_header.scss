@@ -10,6 +10,8 @@ header {
   @extend %center-text;
   @include mq(tablet) {
     text-align: left;
+    position: relative;
+    z-index: 100;
     @include column-spacing(null, null, 20px);
   }
   h3 {

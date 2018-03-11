@@ -44,6 +44,10 @@
   &:hover {
     fill: $white;
     border-bottom: 3px solid $pastel-green;
+    @include mq(tablet) {
+      border: 3px solid $mulled-wine;
+      border-left: 3px solid $pastel-green;
+    }
   }
 }
 

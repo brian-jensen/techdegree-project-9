@@ -5,6 +5,19 @@
 .mobile-nav {
   background-color: $mulled-wine;
   @include column-spacing(null, null, 15px);
+  @include mq(tablet) {
+    position: fixed;
+    height: 100vh;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 75px;
+    padding-top: 90px;
+    top: 0px;
+    div.grid__col--3 {
+      flex-basis: 10%;
+    }
+  }
 }
 
 .dashboard-icon,
