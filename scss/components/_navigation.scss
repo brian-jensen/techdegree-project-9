@@ -6,8 +6,9 @@
   background-color: $mulled-wine;
   @include column-spacing(null, null, 15px);
   @include mq(tablet) {
+    @include column-spacing(null, null, 0);
     position: fixed;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
