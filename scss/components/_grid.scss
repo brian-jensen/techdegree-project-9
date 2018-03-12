@@ -4,6 +4,7 @@
 
 .container {
   @include block-centered(block);
+  min-width: $container-min-width;
   max-width: $container-max-width;
   background-color: $white;
 }
