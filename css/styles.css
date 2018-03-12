@@ -54,7 +54,6 @@ header .user-alert .active-user img, #member-activity img {
     .members-icon,
     .visits-icon,
     .settings-icon {
-      align-self: center;
       width: 72px;
       padding-left: 20px;
       padding-right: 20px; } }
@@ -594,13 +593,12 @@ ul {
       float: left;
       width: 75px;
       height: 100vh;
-      padding-top: 5px;
+      padding-top: 10px;
       top: 0;
       justify-content: flex-start;
-      flex-direction: column;
-      align-items: flex-start; }
+      flex-direction: column; }
       .mobile-nav div.grid__col--3 {
-        flex-basis: 10%; } }
+        flex-basis: 5%; } }
 
 header {
   background-color: #7477bf;
