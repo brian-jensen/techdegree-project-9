@@ -590,6 +590,7 @@ ul {
       padding-left: 0;
       padding-right: 0;
       position: sticky;
+      position: -webkit-sticky;
       float: left;
       width: 75px;
       height: 100vh;

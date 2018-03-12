@@ -8,6 +8,7 @@
   @include mq(tablet) {
     @include column-spacing(null, null, 0);
     position: sticky;
+    position: -webkit-sticky;
     float: left;
     width: 75px;
     height: 100vh;
