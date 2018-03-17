@@ -1,19 +1,19 @@
-@import url("https://fonts.googleapis.com/css?family=Martel+Sans:200,300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Martel+Sans:200,300,400,600,700|Roboto:100,300");
 .container {
   font-size: 14px;
-  font-family: "Martel Sans", Helvetica, Arial, sans-serif;
+  font-family: "Martel Sans", "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 200; }
 
 header, header h3 {
   color: #f2f2f2;
   font-weight: 200; }
 
-.traffic-content h3, #daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3, .dashboard-header .dashboard-heading h3, .traffic-content .traffic-list-container .traffic-list li {
+.traffic-content h3, #daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3, .dashboard-header .dashboard-heading h3, .traffic-content .traffic-list-container #traffic-list li {
   color: #595959;
   font-weight: 400;
   font-size: 12px; }
   @media only screen and (min-width: 768px) {
-    .traffic-content h3, #daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3, .dashboard-header .dashboard-heading h3, .traffic-content .traffic-list-container .traffic-list li {
+    .traffic-content h3, #daily-pie h3, .social-header h3, #member-activity h3, #message-settings h3, .dashboard-header .dashboard-heading h3, .traffic-content .traffic-list-container #traffic-list li {
       font-size: 14px; } }
 
 header .user-alert .active-user img, #member-activity img {
@@ -530,6 +530,11 @@ ul {
   section {
     margin-left: 75px; } }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table; }
+
 .btn--phones {
   background-color: #73b1bf; }
   .btn--phones:hover {
@@ -544,6 +549,13 @@ ul {
   background-color: #7477bf; }
   .btn--desktop:hover {
     background-color: #4d51a8; }
+
+.chart-container {
+  display: block;
+  max-width: 100%; }
+  .chart-container canvas {
+    width: 100%;
+    height: 300px; }
 
 .container {
   min-width: 320px;
@@ -580,12 +592,12 @@ ul {
   .grid__col--12 {
     flex-basis: 100%; } }
 
-.mobile-nav {
+.navigation {
   background-color: #4d4c72;
   padding-left: 15px;
   padding-right: 15px; }
   @media only screen and (min-width: 768px) {
-    .mobile-nav {
+    .navigation {
       padding-left: 0;
       padding-right: 0;
       position: sticky;
@@ -593,11 +605,11 @@ ul {
       float: left;
       width: 75px;
       height: 100vh;
-      padding-top: 10px;
+      padding-top: 15px;
       top: 0;
       justify-content: flex-start;
       flex-direction: column; }
-      .mobile-nav div.grid__col--3 {
+      .navigation div.grid__col--3 {
         flex-basis: 5%; } }
 
 header {
@@ -708,62 +720,61 @@ main {
   padding-top: 15px;
   padding-bottom: 15px; }
   .traffic-content [class*="col--5"] {
+    padding-top: 5px;
     margin: auto;
     flex-grow: 1; }
   .traffic-content .traffic-list-container {
     flex-grow: 1; }
-    .traffic-content .traffic-list-container .traffic-list {
+    .traffic-content .traffic-list-container #traffic-list {
       display: flex;
       justify-content: flex-end; }
-      .traffic-content .traffic-list-container .traffic-list li {
-        padding: 5px; }
-        .traffic-content .traffic-list-container .traffic-list li:hover, .traffic-content .traffic-list-container .traffic-list li:active {
+      .traffic-content .traffic-list-container #traffic-list li {
+        padding: 8px 5px 5px 5px; }
+        .traffic-content .traffic-list-container #traffic-list li:hover, .traffic-content .traffic-list-container #traffic-list li.active {
           cursor: pointer;
           background-color: #85db81;
           color: #fff;
-          border-radius: 20px; }
+          border-radius: 20px;
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
         @media only screen and (min-width: 540px) {
-          .traffic-content .traffic-list-container .traffic-list li {
+          .traffic-content .traffic-list-container #traffic-list li {
             margin-left: 10px;
             margin-right: 10px;
             padding-left: 10px;
             padding-right: 10px; } }
         @media only screen and (min-width: 768px) {
-          .traffic-content .traffic-list-container .traffic-list li {
-            padding-top: 8px;
+          .traffic-content .traffic-list-container #traffic-list li {
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-left: 12px;
+            padding-right: 12px; } }
+        @media only screen and (min-width: 1024px) {
+          .traffic-content .traffic-list-container #traffic-list li {
             margin-left: 10px;
             margin-right: 10px;
             padding-left: 15px;
             padding-right: 15px; } }
 
-.traffic-chart {
-  padding-left: 20px;
-  padding-right: 20px; }
-  .traffic-chart img {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto; }
-
 #daily-pie {
   margin-top: 20px; }
-  #daily-pie .daily-traffic,
-  #daily-pie .mobile-users {
-    padding-left: 20px;
-    padding-right: 20px; }
-    #daily-pie .daily-traffic img,
-    #daily-pie .mobile-users img {
-      max-width: 100%;
-      display: block;
-      margin: 0 auto; }
+  #daily-pie .daily-traffic canvas,
+  #daily-pie .mobile-users canvas {
+    max-width: 100%;
+    max-height: 300px; }
   #daily-pie .daily-traffic {
     padding-bottom: 10px;
     border-top: 1px solid #cacaca;
-    border-bottom: 1px solid #cacaca; }
+    border-bottom: 1px solid #cacaca;
+    padding-left: 20px;
+    padding-right: 20px; }
     @media only screen and (min-width: 768px) {
       #daily-pie .daily-traffic {
         padding-top: 20px; } }
   #daily-pie .mobile-users {
-    border-bottom: 1px solid #cacaca; }
+    border-bottom: 1px solid #cacaca;
+    padding-right: 20px; }
+    #daily-pie .mobile-users h3 {
+      margin-left: 20px; }
     @media only screen and (min-width: 768px) {
       #daily-pie .mobile-users {
         border-top: 1px solid #cacaca;
@@ -871,11 +882,21 @@ main {
     margin-bottom: 0;
     height: 44px;
     width: 44px; }
+    @media only screen and (min-width: 540px) {
+      #member-activity img {
+        position: relative;
+        bottom: 6px; } }
   #member-activity a {
     font-size: 12px;
     color: #7477bf; }
   #member-activity p {
     font-size: 10px; }
+    @media only screen and (min-width: 1024px) {
+      #member-activity p {
+        font-size: 12px;
+        text-align: right;
+        position: relative;
+        bottom: 32px; } }
   #member-activity h3 {
     line-height: 0; }
   #member-activity .new-members {
@@ -904,6 +925,10 @@ main {
         border-bottom-style: dotted;
         margin-top: 15px;
         margin-bottom: 15px; }
+        @media only screen and (min-width: 540px) {
+          #member-activity .new-members-list .new-members-info img {
+            position: relative;
+            bottom: 6px; } }
         #member-activity .new-members-list .new-members-info-container {
           width: 100%; }
   #member-activity .recent-activity {
