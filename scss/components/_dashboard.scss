@@ -31,6 +31,37 @@ main {
   }
 }
 
+.alert {
+  @include column-spacing(null,null,20px);
+  margin-top: 20px;
+  width: 100%;
+  height: 30px;
+  &.hidden {
+    display: none;
+  }
+  &-bar {
+    display: inline-flex;
+    justify-content: space-between;
+    background-color: $color-primary;
+    border-radius: $border--rounded-corners;
+    color: $white;
+    font-size: 12px;
+    width: 100%;
+    height: 30px;
+    line-height: 0.8;
+    letter-spacing: 1px;
+    font-weight: $font-weight--thin;
+    @include column-spacing(null,null,10px);
+    span {
+      display: block;
+      margin: auto 0;
+      text-align: right;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+}
+
 .dashboard-search {
   background-color: $alabaster;
   border-left: $border--primary;

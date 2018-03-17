@@ -3,7 +3,9 @@ const trafficList = document.getElementById('traffic-list');
 const lineChart = document.getElementById('traffic-line-chart');
 const dailyBarChart = document.getElementById('traffic-bar-chart');
 const mobilePieChart = document.getElementById('traffic-pie-chart');
+const alertBarClose = document.querySelector('.alert-bar span');
 let li = trafficList.querySelectorAll('li');
+
 
 
 let hourlyLabels = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00',
@@ -204,4 +206,9 @@ newPieChart = new Chart(mobilePieChart, {
       }
     }
   }
+});
+
+alertBarClose.addEventListener('click', function(e) {
+  const alertContainer = document.querySelector('.alert');
+  alertContainer.classList.add('hidden');
 });
