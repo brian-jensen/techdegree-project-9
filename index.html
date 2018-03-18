@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Web App Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/css-toggle-switch-master/dist/toggle-switch.css">
   <link rel="stylesheet" href="css/styles.css">
 
 </head>
@@ -369,10 +370,30 @@
     <ul>
       <li><h3>Settings</h3></li>
       <li class="notify">
-        <span>Send Email Notifications</span>
+        <p>Send Email Notifications</p>
+        <div class="switch-container">
+        <label class="switch-light switch-material" onclick="">
+          <input type="checkbox">
+          <span>
+            <span>Off</span>
+            <span>On</span>
+            <a></a>
+          </span>
+        </label>
+      </div>
       </li>
       <li class="public">
-       <span>Set Profile to Public</span>
+       <p>Set Profile to Public</p>
+       <div class="switch-container">
+          <label class="switch-light switch-material" onclick="">
+            <input type="checkbox">
+            <span>
+              <span>Off</span>
+              <span>On</span>
+              <a></a>
+            </span>
+          </label>
+        </div>
       </li>
       <li>
         <select>

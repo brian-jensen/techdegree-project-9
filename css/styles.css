@@ -715,6 +715,9 @@ main {
       text-align: right;
       font-size: 16px;
       cursor: pointer; }
+      .alert-bar span:hover {
+        color: #85db81;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); }
 
 .dashboard-search {
   background-color: #fbfbfb;
@@ -1125,7 +1128,14 @@ main {
         #message-settings .settings li button:nth-of-type(2) {
           background-color: #a5a5a5; }
       #message-settings .settings li.notify, #message-settings .settings li.public {
-        margin-bottom: 20px; }
+        margin-bottom: 20px;
+        display: inline-flex;
+        justify-content: flex-start;
+        align-content: flex-start; }
+        #message-settings .settings li.notify p, #message-settings .settings li.public p {
+          margin-top: 6px;
+          margin-right: 30px;
+          width: 150px; }
     #message-settings .settings select {
       height: 35px;
       width: 100%;

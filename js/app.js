@@ -217,7 +217,7 @@ window.onload = function() {
   form.reset();
 }
 
-sendButton.addEventListener('click', function(e) {
+sendButton.addEventListener('click', function (e) {
   e.preventDefault();
   const userValidation = document.forms['messageUser']['userName'].value;
   const messageValidation = document.forms['messageUser']['message'].value;
@@ -232,5 +232,5 @@ sendButton.addEventListener('click', function(e) {
     validationText.textContent = 'Your message has been sent!';
     form.reset();
   }
-  setTimeout(function(){validationText.textContent = ''}, 5000);
+  setTimeout(function () { validationText.textContent = '' }, 5000);
 });
