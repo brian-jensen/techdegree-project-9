@@ -460,6 +460,18 @@ main {
         @include column-spacing(null, null, 10px);
       }
     }
+    span {
+      position: relative;
+      top: 0px;
+      font-style: italic;
+      text-align: center;
+      color: #b10000;
+      font-weight: $font-weight--medium;
+      line-height: 0;
+      @include mq(tablet) {
+        top: 15px;
+      }
+    }
   }
   .settings {
     width: 100%;

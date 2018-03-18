@@ -4,9 +4,9 @@ const lineChart = document.getElementById('traffic-line-chart');
 const dailyBarChart = document.getElementById('traffic-bar-chart');
 const mobilePieChart = document.getElementById('traffic-pie-chart');
 const alertBarClose = document.querySelector('.alert-bar span');
+const sendButton = document.querySelector('.message-user button');
+const form = document.forms['messageUser'];
 let li = trafficList.querySelectorAll('li');
-
-
 
 let hourlyLabels = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00',
                     '12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00'];
@@ -211,4 +211,26 @@ newPieChart = new Chart(mobilePieChart, {
 alertBarClose.addEventListener('click', function(e) {
   const alertContainer = document.querySelector('.alert');
   alertContainer.classList.add('hidden');
+});
+
+window.onload = function() {
+  form.reset();
+}
+
+sendButton.addEventListener('click', function(e) {
+  e.preventDefault();
+  const userValidation = document.forms['messageUser']['userName'].value;
+  const messageValidation = document.forms['messageUser']['message'].value;
+  const validationText = document.querySelector('.message-user span');
+  if (userValidation === "" && messageValidation === "") {
+    validationText.textContent = 'Please enter a username and message';
+  } else if (userValidation === "") {
+    validationText.textContent = 'Please enter a username';
+  } else if (messageValidation === "") {
+    validationText.textContent = 'Please enter a message';
+  } else {
+    validationText.textContent = 'Your message has been sent!';
+    form.reset();
+  }
+  setTimeout(function(){validationText.textContent = ''}, 5000);
 });
