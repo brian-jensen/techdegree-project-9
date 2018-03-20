@@ -1,8 +1,87 @@
+//══════════════════════════════════════
+//              CHART STYLES
+//══════════════════════════════════════
 .chart-container {
-  display: block;
   max-width: 100%;
+  @extend %block-element;
   canvas {
-    width: 100%;
+    @extend %full-width;
     height: 300px;
+  }
+}
+
+.traffic-content {
+  @include column-spacing(null, null, 20px);
+  @include row-spacing(null, null, 15px);
+  [class*="col--5"] {
+    padding-top: 5px;
+    margin: auto;
+    @extend %grow;
+  }
+  h3 {
+    @extend %dashboard-h3-caps;
+  }
+  .traffic-list-container {
+    @extend %grow;
+    #traffic-list {
+      @include flex-container(flex, flex-end);
+      li {
+        padding: 8px 5px 5px 5px;
+        @extend %dashboard-h3;
+        &:hover,
+        &.active {
+          background-color: $pastel-green;
+          color: $white;
+          border-radius: 20px;
+          box-shadow: 1px 1px 3px $color-shadow;
+          @extend %pointer;
+        }
+        @include mq(landscape) {
+          @include column-spacing(10px, 10px, 10px);
+        }
+        @include mq(tablet) {
+          @include column-spacing(10px, 10px, 12px, 12px);
+        }
+        @include mq(desktop) {
+          @include column-spacing(10px, 10px, 15px, 15px);
+        }
+      }
+    }
+  }
+}
+
+#daily-pie {
+  margin-top: 20px;
+  h3 {
+    @extend %dashboard-h3-caps;
+  }
+  .daily-traffic,
+  .mobile-users {
+    @extend %full-width;
+    canvas {
+      max-width: 100%;
+      max-height: 300px;
+    }
+  }
+  .daily-traffic {
+    padding-bottom: 10px;
+    border-top: $border--primary;
+    border-bottom: $border--primary;
+    @include column-spacing(null, null, 20px);
+    @include mq(tablet) {
+      padding-top: 20px;
+    }
+  }
+  .mobile-users {
+    border-bottom: $border--primary;
+    padding-right: 20px;
+    h3 {
+      margin-left: 20px;
+    }
+    @include mq(tablet) {
+      border-top: $border--primary;
+      border-left: $border--primary;
+      padding-top: 20px;
+    }
   }
 }

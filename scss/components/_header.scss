@@ -1,7 +1,6 @@
 //══════════════════════════════════════
 //              HEADER STYLES
 //══════════════════════════════════════
-
 header {
   background-color: $color-primary;
   @include row-spacing(null, null, 25px, 20px);
@@ -15,7 +14,7 @@ header {
     @include column-spacing(null, null, 20px);
   }
   h3 {
-    @include row-spacing(6px,0);
+    @include row-spacing(6px, 0);
     @extend %header-base-style;
     span {
       font-weight: $font-weight--ultra-bold;
@@ -26,13 +25,11 @@ header {
     }
   }
   .user-alert {
-    display: flex;
+    @extend %flex-element;
     .bell-container {
-      display: inline-flex;
-      justify-content: flex-end;
-      align-items: center;
       padding-right: 15px;
-      flex-grow: 1;
+      @include flex-container(inline-flex, flex-end, $items: center);
+      @extend %grow;
       @include mq(tablet) {
         flex-grow: 0;
       }
@@ -42,23 +39,20 @@ header {
         height: 1.3rem;
         fill: $white;
       }
-    }   
+    }
     .active-user {
-      padding-left: 10px;
       border-left: 1px solid darken($color-primary, 5%);
+      @extend %user-padding;
       @include mq(tablet) {
         flex-grow: 1;
-        @include row-spacing(null,null,5px);
+        @include row-spacing(null, null, 5px);
       }
       img {
         @extend %user-icon;
       }
       .logged-in {
-        padding-left: 10px;
+        @extend %user-padding;
       }
-    }  
+    }
   }
 }
-
-
-

@@ -1,7 +1,6 @@
 //══════════════════════════════════════
 //    				 PLACEHOLDERS
 //══════════════════════════════════════
-
 %base-styles {
   font-size: $base__font-size;
   font-family: $font-family--primary;
@@ -17,7 +16,7 @@
   color: darken($dove-gray, 5%);
   font-weight: $font-weight--medium;
   font-size: $base__font-size - 2;
-  @include mq(tablet){
+  @include mq(tablet) {
     font-size: $base__font-size;
   }
 }
@@ -29,7 +28,7 @@
   height: $base__font-size * 2;
 }
 
-%dashboard-h3-caps{
+%dashboard-h3-caps {
   @extend %dashboard-h3;
   text-transform: uppercase;
 }
@@ -38,7 +37,7 @@
   width: 52px;
   fill: $spun-pearl;
   border: 3px solid $mulled-wine;
-  height: 100%;
+  max-height: 100%;
   @include row-spacing(null, null, 10px);
   @include column-spacing(null, null, 10px);
   &:hover {
@@ -49,9 +48,9 @@
       border-left: 3px solid $pastel-green;
     }
   }
-  @include mq(tablet){  
-  width: 72px;
-  @include column-spacing(null, null, 20px);
+  @include mq(tablet) {
+    width: 72px;
+    @include column-spacing(null, null, 20px);
   }
 }
 
@@ -73,7 +72,7 @@
   &::placeholder {
     color: darken($white, 35%);
     font-weight: $font-weight--thin;
-    font-size: 10px;
+    font-size: $base__font-size - 4;
     @include mq(landscape) {
       font-size: .7rem;
     }
@@ -85,10 +84,46 @@
     @include column-spacing(null, null, 10px);
     background-size: 14px 14px;
   }
+  &.invalid {
+    border-color: $color-error;
+    &::placeholder {
+      color: $color-error;
+    }
+  }
+}
+
+%switch-overides {
+  .switch-material.switch-light input~span a {
+    border: 1px solid $spun-pearl;
+    outline: 0;
+  }
+  .switch-material.switch-light input:checked~span a {
+    background: $white;
+    border: 1px solid $pastel-green;
+  }
+  .switch-material.switch-light input:checked~span {
+    background: rgba($pastel-green, 0.8);
+  }
+}
+
+%relative {
+  position: relative;
+}
+
+%grow {
+  flex-grow: 1;
 }
 
 %full-width {
   width: 100%;
+}
+
+%no-line-height {
+  line-height: 0;
+}
+
+%pointer {
+  cursor: pointer;
 }
 
 %block-element {
@@ -97,6 +132,10 @@
 
 %flex-element {
   display: flex;
+}
+
+%user-padding {
+  padding-left: 10px;
 }
 
 %inline-block-element {
@@ -119,52 +158,10 @@
   box-shadow: 0 0 3px 0 rgba($dove-gray, .8) inset;
 }
 
-%condensed {
-  @include column-spacing(em(25px));
-}
-
 %rounded-corners {
   border-radius: $border--rounded-corners;
 }
 
 %circle {
   border-radius: $border--circle;
-}
-
-%image-presets {
-  @extend %block-element;
-  @extend %center-element;
-  max-width: 100%;
-}
-
-%buttons {
-  @extend %block-element;
-  @extend %center-element;
-  @extend %rounded-corners;
-  @extend %center-text;
-  @include row-spacing($margin-top: em(29px), $padding-top: em(16px));
-  width: 95%;
-  border: 0;
-  color: $white;
-  font-size: em(15px);
-  font-weight: $font-weight--medium;
-  text-transform: uppercase;
-}
-
-%heading-h1 {
-  line-height: em(20px);
-  font-size: em(32px);
-  color: $color-primary;
-}
-
-%base-link-styles {
-  @extend %full-width;
-  text-decoration: none;
-}
-
-
-%content-link {
-  @extend %base-link-styles;
-  color: $color-primary;
-  font-weight: $font-weight--medium;
 }

@@ -1,0 +1,36 @@
+//══════════════════════════════════════
+//         		NOTIFCATION STYLES
+//══════════════════════════════════════
+.alert {
+  height: 30px;
+  margin-top: 20px;
+  @extend %full-width;
+  @include column-spacing(null, null, 20px);
+  &.hidden {
+    display: none;
+  }
+  &-bar {
+    background-color: $color-primary;
+    color: $white;
+    font-size: $base__font-size - 2;
+    height: 30px;
+    line-height: 0.8;
+    letter-spacing: 1px;
+    font-weight: $font-weight--thin;
+    @extend %full-width;
+    @extend %rounded-corners;
+    @include column-spacing(null, null, 10px);
+    @include flex-container(inline-flex, space-between);
+    span {
+      margin: auto 0;
+      text-align: right;
+      font-size: 27px;
+      @extend %block-element;
+      @extend %pointer;
+      &:hover {
+        color: $pastel-green;
+        text-shadow: 1px 1px 5px $color-shadow;
+      }
+    }
+  }
+}

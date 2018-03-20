@@ -1,12 +1,11 @@
 //══════════════════════════════════════
 //              NAVIGATION STYLES
 //══════════════════════════════════════
-
 .navigation {
   background-color: $mulled-wine;
+  justify-content: space-around;
   @include column-spacing(null, null, 15px);
   @include mq(tablet) {
-    @include column-spacing(null, null, 0);
     position: sticky;
     position: -webkit-sticky;
     float: left;
@@ -16,9 +15,13 @@
     top: 0;
     justify-content: flex-start;
     flex-direction: column;
+    @include column-spacing(null, null, 0);
     div.grid__col--3 {
       flex-basis: 5%;
     }
+  }
+  div.grid__col--3 {
+    @extend %no-line-height;
   }
 }
 
@@ -28,4 +31,3 @@
 .settings-icon {
   @extend %nav-icons;
 }
-

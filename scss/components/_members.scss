@@ -1,0 +1,128 @@
+#member-activity {
+  color: $dove-gray;
+  margin-top: 20px;
+  img {
+    margin-right: 10px;
+    margin-bottom: 0;
+    height: 44px;
+    width: 44px;
+    @extend %user-icon;
+    @include mq(landscape) {
+      position: relative;
+      bottom: 6px;
+    }
+  }
+  a {
+    font-size: $base__font-size - 2;
+    color: $color-primary;
+  }
+  p {
+    font-size: $base__font-size - 4;
+    @include mq(desktop) {
+      font-size: $base__font-size - 2;
+      text-align: right;
+      position: relative;
+      bottom: 32px;
+    }
+  }
+  h3 {
+    @extend %no-line-height;
+    @extend %dashboard-h3-caps;
+  }
+  .new-members {
+    border-bottom: $border--primary;
+    border-top: $border--primary;
+    @extend %full-width;
+    @include row-spacing(10px, 0, 10px);
+    @include column-spacing(null, null, 20px);
+    @include mq(tablet) {
+      padding-top: 30px;
+    }
+    &-list {
+      @include flex-container(flex, $dir: column);
+      @extend %full-width;
+      .new-members-info {
+        height: 65px;
+        border-bottom: $border--primary;
+        border-bottom-style: dotted;
+        @include flex-container(flex, $dir: row);
+        @extend %full-width;
+        @include row-spacing(15px);
+        img {
+          @include mq(landscape) {
+            position: relative;
+            bottom: 6px;
+          }
+        }
+        &-container {
+          @extend %full-width;
+        }
+      }
+    }
+  }
+  .recent-activity {
+    border-bottom: $border--primary;
+    @extend %full-width;
+    @include row-spacing(0px, 10px, 10px);
+    @include column-spacing(null, null, 20px);
+    @include mq(tablet) {
+      @include row-spacing(10px, 0, 30px);
+      border-left: $border--primary;
+      border-top: $border--primary;
+    }
+    ul {
+      @extend %full-width;
+    }
+    li {
+      @extend %flex-element;
+    }
+    span {
+      font-size: $base__font-size - 2;
+      width: 85%;
+      &.timestamp {
+        font-size: $base__font-size - 4;
+        font-weight: $font-weight--medium;
+        color: $silver-chalice-dark;
+      }
+      &.or {
+        font-size: $base__font-size + 10;
+        width: 28px;
+        color: $color-primary;
+        text-align: right;
+        margin: auto 0;
+        @extend %pointer;
+        @include mq(landscape) {
+          display: none;
+        }
+      }
+      &.gt {
+        font-size: $base__font-size * 2;
+        width: 32px;
+        color: $color-primary;
+        text-align: right;
+        margin: auto 0;
+        display: none;
+        @extend %no-line-height;
+        @extend %pointer;
+        @include mq(landscape) {
+          display: inline;
+        }
+      }
+    }
+    &-list {
+      @include flex-container(flex, $dir: column);
+      @extend %full-width;
+      .recent-activity-info {
+        height: 65px;
+        border-bottom: $border--primary;
+        border-bottom-style: dotted;
+        @extend %full-width;
+        @include flex-container(flex, $dir: row);
+        @include row-spacing(15px, 15px, null, 20px);
+        &-container {
+          @extend %full-width;
+        }
+      }
+    }
+  }
+}

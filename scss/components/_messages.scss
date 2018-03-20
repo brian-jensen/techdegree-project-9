@@ -1,0 +1,143 @@
+//══════════════════════════════════════
+//    	   MESSAGE AND SETTINGS STYLES
+//══════════════════════════════════════
+#message-settings {
+  font-size: $base__font-size - 2;
+  padding-bottom: 25px;
+  @include mq(tablet) {
+    padding-bottom: 50px;
+  }
+  h3 {
+    @extend %dashboard-h3-caps;
+  }
+  button {
+    height: 36px;
+    color: $white;
+    border: 0;
+    font-size: $base__font-size - 4;
+    text-transform: uppercase;
+    background-color: $color-primary;
+    @extend %pointer;
+    @extend %full-width;
+    @extend %rounded-corners;
+  }
+  .message-user {
+    height: 300px;
+    padding-bottom: 20px;
+    border-bottom: $border--primary;
+    @include flex-container(flex, space-between, $dir: column);
+    @extend %full-width;
+    @include mq(tablet) {
+      height: 320px;
+      border-bottom: none;
+      @include row-spacing(null, null, 20px, 50px);
+    }
+    @include column-spacing(null, null, 20px);
+    input {
+      background-color: $alabaster;
+      @extend %full-width;
+      @extend %input-defaults;
+    }
+    textarea {
+      border: $border--primary;
+      height: 105px;
+      background-color: $alabaster;
+      transition: box-shadow ease-out .5s;
+      resize: none;
+      @extend %full-width;
+      @extend %rounded-corners;
+      @include column-spacing(null, null, 5px);
+      @include row-spacing (15px, 15px, 10px);
+      &::placeholder {
+        color: darken($white, 35%);
+        font-weight: $font-weight--thin;
+        font-size: $base__font-size - 4;
+        @include mq(landscape) {
+          font-size: .7rem;
+        }
+      }
+      &:focus {
+        @extend %form-focus;
+      }
+      &.invalid {
+        border-color: $color-error;
+        &::placeholder {
+          color: $color-error;
+        }
+      }
+      @include mq(tablet) {
+        @include column-spacing(null, null, 10px);
+      }
+    }
+    span {
+      top: 0px;
+      font-style: italic;
+      color: $pastel-green;
+      font-weight: $font-weight--medium;
+      @extend %relative;
+      @extend %center-text;
+      @extend %no-line-height;
+      @include mq(tablet) {
+        top: 15px;
+      }
+    }
+  }
+  .settings {
+    height: 300px;
+    @extend %full-width;
+    @include row-spacing(null, null, 10px, 0);
+    @include column-spacing(null, null, 20px);
+    @include mq(tablet) {
+      height: 320px;
+      padding-top: 0;
+      border-left: $border--primary;
+      @include row-spacing(null, null, 20px, 50px);
+    }
+    ul {
+      margin: 0;
+      height: 100%;
+      @include flex-container(flex, space-between, $dir: column);
+    }
+    li {
+      @include flex-container(inline-flex, space-between);
+      @extend %full-width;
+      button {
+        flex-basis: 45%;
+        &:nth-of-type(2) {
+          background-color: $silver-chalice;
+        }
+      }
+      &.notify,
+      &.public {
+        align-content: flex-start;
+        @include row-spacing (null, 20px);
+        @include flex-container(inline-flex, flex-start);
+        p {
+          margin-top: 6px;
+          margin-right: 30px;
+          width: 150px;
+        }
+        div {
+          @extend %switch-overides;
+        }
+      }
+    }
+    select {
+      height: 35px;
+      transition: box-shadow ease-out .5s;
+      border: $border--primary;
+      background-color: $alabaster;
+      font-weight: $font-weight--thin;
+      color: darken($white, 35%);
+      @extend %full-width;
+      @extend %rounded-corners;
+      @include column-spacing(null, null, 5px);
+      &:focus {
+        @extend %form-focus;
+      }
+      @include mq(tablet) {
+        @include column-spacing(null, null, 10px);
+      }
+    }
+  }
+}

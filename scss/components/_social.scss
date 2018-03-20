@@ -1,0 +1,94 @@
+//══════════════════════════════════════
+//    				 SOCIAL ICONS
+//══════════════════════════════════════
+.social {
+  @include mq(tablet) {
+    padding-top: 20px;
+  }
+  &-header {
+    @include column-spacing(null, null, 20px);
+    @extend %full-width;
+    h3 {
+      @extend %dashboard-h3-caps;
+    }
+  }
+  .twitter,
+  .facebook {
+    @include row-spacing(null, 20px);
+    @include mq(landscape) {
+      @include row-spacing(null, 0);
+    }
+    @include mq(tablet) {
+      @include row-spacing(null, 20px);
+    }
+  }
+  @include mq(tablet) {
+    .twitter {
+      margin-left: 20px;
+      @include row-spacing(0, 0);
+    }
+    .facebook {
+      @include row-spacing(0, 0);
+    }
+    .google {
+      margin-right: 20px;
+      @include row-spacing(0, 0);
+    }
+  }
+  &-container {
+    border: $border--primary;
+    background-color: $alabaster;
+    @include flex-container(flex, space-between, wrap, $items: center);
+    @include row-spacing(null, null, 12px);
+    @include column-spacing(15px, 15px, 15px);
+    @extend %grow;
+    @extend %rounded-corners;
+    @extend %full-width;
+    @include mq(landscape) {
+      flex-basis: 25%;
+      @include column-spacing(5px, 5px, 5px);
+    }
+    @include mq(tablet) {
+      @include column-spacing(15px, 15px, 15px);
+    }
+    &-icon {
+      width: 60px;
+      height: 60px;
+      background: $color-primary;
+      border-radius: $border--circle;
+      @include flex-container(flex, center, $items: center);
+      .social-icon {
+        width: 50px;
+        height: 50px;
+        top: 20%;
+        left: 20%;
+        fill: $white;
+        @extend %relative;
+      }
+    }
+    ul {
+      margin-left: 5%;
+      @include row-spacing(0, 0);
+      @extend %grow;
+    }
+    h4,
+    p {
+      @extend %no-line-height;
+    }
+    h4 {
+      color: $color-primary;
+      @include mq(desktop) {
+        font-size: 16px;
+      }
+    }
+    p {
+      font-size: $base__font-size + 6;
+      color: $dove-gray;
+      font-weight: $font-weight--thin;
+      @include mq(desktop) {
+        font-size: 48px;
+        @include row-spacing(36px);
+      }
+    }
+  }
+}

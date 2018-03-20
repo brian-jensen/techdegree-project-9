@@ -6,6 +6,8 @@ const mobilePieChart = document.getElementById('traffic-pie-chart');
 const alertBarClose = document.querySelector('.alert-bar span');
 const sendButton = document.querySelector('.message-user button');
 const form = document.forms['messageUser'];
+const input = form.querySelector('input');
+const textarea = form.querySelector('textarea');
 let li = trafficList.querySelectorAll('li');
 
 let hourlyLabels = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00',
@@ -223,14 +225,29 @@ sendButton.addEventListener('click', function (e) {
   const messageValidation = document.forms['messageUser']['message'].value;
   const validationText = document.querySelector('.message-user span');
   if (userValidation === "" && messageValidation === "") {
-    validationText.textContent = 'Please enter a username and message';
+    input.classList.add('invalid');
+    input.placeholder = 'Please enter a username';
+    textarea.classList.add('invalid');
+    textarea.placeholder = 'Please enter a message'
   } else if (userValidation === "") {
-    validationText.textContent = 'Please enter a username';
+    input.classList.add('invalid');
+    input.placeholder = 'Please enter a username';
   } else if (messageValidation === "") {
-    validationText.textContent = 'Please enter a message';
+    textarea.classList.add('invalid');
+    textarea.placeholder = 'Please enter a message'
   } else {
     validationText.textContent = 'Your message has been sent!';
     form.reset();
+    setTimeout(function () { validationText.textContent = '' }, 5000);
   }
-  setTimeout(function () { validationText.textContent = '' }, 5000);
 });
+
+input.onfocus = function() { 
+  input.classList.remove('invalid');
+  input.placeholder = 'Search for User';
+};
+
+textarea.onfocus = function() {
+  textarea.classList.remove('invalid'); 
+  textarea.placeholder = 'Message for User';
+};
