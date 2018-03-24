@@ -8,6 +8,13 @@ const sendButton = document.querySelector('.message-user button');
 const form = document.forms['messageUser'];
 const input = form.querySelector('input');
 const textarea = form.querySelector('textarea');
+const alertContainer = document.querySelector('.alert');
+const modal = document.getElementById('notification-modal');
+const showModal = document.getElementById('notification-bell');
+const closeModal = document.querySelector('.close');
+const closeNotification = document.querySelectorAll('.close-notification');
+const notificationList = document.querySelector('.modal-content ul');
+let clickCount = 0;
 let li = trafficList.querySelectorAll('li');
 
 let hourlyLabels = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00',
@@ -210,10 +217,9 @@ newPieChart = new Chart(mobilePieChart, {
   }
 });
 
-alertBarClose.addEventListener('click', function(e) {
-  const alertContainer = document.querySelector('.alert');
+alertBarClose.onclick = function() {
   alertContainer.classList.add('hidden');
-});
+}
 
 window.onload = function() {
   form.reset();
@@ -251,3 +257,23 @@ textarea.onfocus = function() {
   textarea.classList.remove('invalid'); 
   textarea.placeholder = 'Message for User';
 };
+
+showModal.onclick = function() {
+    modal.style.display = 'block';
+}
+
+closeModal.onclick = function() {
+    modal.style.display = 'none';
+}
+
+for (let notice = 0; notice < closeNotification.length; notice++) {
+  let span = closeNotification[notice];
+  span.onclick = function() {
+    span.parentNode.classList.add('hidden');
+    clickCount++;
+    if (clickCount === closeNotification.length){
+      notificationList.innerHTML = '<span class="no-notifications">No new notifications</span>';
+      alertContainer.classList.add('hidden');
+    }
+  }
+}

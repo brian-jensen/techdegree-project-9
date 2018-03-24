@@ -1,6 +1,106 @@
 //══════════════════════════════════════
 //         		NOTIFCATION STYLES
 //══════════════════════════════════════
+#notification-bell {
+  @extend %pointer;
+}
+
+
+ /* The Modal (background) */
+ .modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 200; /* Sit on top */
+  right: 10px;
+  top: 50px;
+  width: 300px;
+  height: 100%;
+  padding-right: 20px;
+  @include mq(landscape) {
+    right: auto;
+    top: 45px;
+  }
+  @include mq(tablet) {
+    top: 50px;
+  }
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: $mulled-wine;
+  margin: 0 auto; /* 15% from the top and centered */
+  @include column-spacing(null, null, 10px);
+  border: $border--primary;
+  @extend %rounded-corners;
+  box-shadow: 1px 1px 2px $color-shadow;
+  ul {
+    @include row-spacing(null,null,8px,5px);
+    li {
+      @include row-spacing(5px,5px,5px,2px);
+      background-color: darken($color-primary, 2%);
+      @include column-spacing(null, null, 5px);
+      border: $border--primary;
+      @extend %rounded-corners;
+      font-size: $base__font-size - 4;
+      text-align: left;
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &.hidden {
+        display: none;
+      }
+      .close-notification {
+        float: right;
+        color: $silver;
+        @extend %pointer;
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+    .no-notifications {
+      @extend %block-element;
+      @extend %center-text;
+      @extend %full-width;
+      font-style: italic;
+      font-size: $base__font-size - 2;
+      width: 100%;
+    }
+  }
+}
+
+/* The Close Button */
+.close {
+  color: $silver;
+  float: right;
+  height: 14px;
+  margin-right: -8px;
+  margin-top: 2px;
+  svg {
+    width: 12px;
+    height: 12px;
+    .close-icon-background {
+      fill: $silver;
+    }
+    &:hover {
+      .close-icon-background {
+        fill: $pastel-green;
+      }
+    }
+  }
+}
+
+.close:hover,
+.close:focus {
+  color: $white;
+  text-decoration: none;
+  @extend %pointer;
+} 
+
+
 .alert {
   height: 30px;
   margin-top: 20px;
@@ -25,10 +125,11 @@
       margin: auto 0;
       text-align: right;
       font-size: 27px;
+      color: $silver;
       @extend %block-element;
       @extend %pointer;
       &:hover {
-        color: $pastel-green;
+        color: $white;
         text-shadow: 1px 1px 5px $color-shadow;
       }
     }

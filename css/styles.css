@@ -104,7 +104,7 @@ header, header h3 {
 .social-container, .social-container ul, .traffic-content [class*="col--5"], .traffic-content .traffic-list-container, header .user-alert .bell-container, .dashboard-header .dashboard-heading {
   flex-grow: 1; }
 
-#message-settings button, #message-settings .message-user, #message-settings .message-user input, #message-settings .message-user textarea, #message-settings .settings, #message-settings .settings li, #message-settings .settings select, #member-activity .new-members, #member-activity .new-members-list, #member-activity .new-members-list .new-members-info, #member-activity .new-members-list .new-members-info-container, #member-activity .recent-activity, #member-activity .recent-activity ul, #member-activity .recent-activity-list, #member-activity .recent-activity-list .recent-activity-info, #member-activity .recent-activity-list .recent-activity-info-container, .social-header, .social-container, .alert, .alert-bar, .chart-container canvas, #daily-pie .daily-traffic,
+#message-settings button, #message-settings .message-user, #message-settings .message-user input, #message-settings .message-user textarea, #message-settings .settings, #message-settings .settings li, #message-settings .settings select, #member-activity .new-members, #member-activity .new-members-list, #member-activity .new-members-list .new-members-info, #member-activity .new-members-list .new-members-info-container, #member-activity .recent-activity, #member-activity .recent-activity ul, #member-activity .recent-activity-list, #member-activity .recent-activity-list .recent-activity-info, #member-activity .recent-activity-list .recent-activity-info-container, .social-header, .social-container, .modal-content ul .no-notifications, .alert, .alert-bar, .chart-container canvas, #daily-pie .daily-traffic,
 #daily-pie .mobile-users, .dashboard-search {
   width: 100%; }
 
@@ -112,10 +112,11 @@ header, header h3 {
 .social-container p, .navigation div.grid__col--3 {
   line-height: 0; }
 
-#message-settings button, #member-activity .recent-activity span.or, #member-activity .recent-activity span.gt, .alert-bar span, .traffic-content .traffic-list-container #traffic-list li:hover, .traffic-content .traffic-list-container #traffic-list li.active {
+#message-settings button, #member-activity .recent-activity span.or, #member-activity .recent-activity span.gt, #notification-bell, .modal-content ul li .close-notification, .close:hover,
+.close:focus, .alert-bar span, .traffic-content .traffic-list-container #traffic-list li:hover, .traffic-content .traffic-list-container #traffic-list li.active {
   cursor: pointer; }
 
-.alert-bar span, .chart-container, .container {
+.modal-content ul .no-notifications, .alert-bar span, .chart-container, .container {
   display: block; }
 
 #message-settings .message-user, #message-settings .settings ul, #member-activity .new-members-list, #member-activity .new-members-list .new-members-info, #member-activity .recent-activity li, #member-activity .recent-activity-list, #member-activity .recent-activity-list .recent-activity-info, .social-container, .social-container-icon, .traffic-content .traffic-list-container #traffic-list, .grid__row, header .user-alert, .dashboard-search {
@@ -130,10 +131,10 @@ header .user-alert .active-user, header .user-alert .active-user .logged-in {
 .container {
   margin: 0 auto; }
 
-#message-settings .message-user span, header, .dashboard-header .dashboard-heading h3 {
+#message-settings .message-user span, .modal-content ul .no-notifications, header, .dashboard-header .dashboard-heading h3 {
   text-align: center; }
 
-#message-settings .message-user input, .dashboard-search input, #message-settings button, #message-settings .message-user textarea, #message-settings .settings select, .social-container, .alert-bar {
+#message-settings .message-user input, .dashboard-search input, #message-settings button, #message-settings .message-user textarea, #message-settings .settings select, .social-container, .modal-content, .modal-content ul li, .alert-bar {
   border-radius: 5px; }
 
 #member-activity img, header .user-alert .active-user img {
@@ -844,6 +845,86 @@ ul {
         margin-top: 36px;
         margin-bottom: 36px; } }
 
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: absolute;
+  /* Stay in place */
+  z-index: 200;
+  /* Sit on top */
+  right: 10px;
+  top: 50px;
+  width: 300px;
+  height: 100%;
+  padding-right: 20px; }
+  @media only screen and (min-width: 540px) {
+    .modal {
+      right: auto;
+      top: 45px; } }
+  @media only screen and (min-width: 768px) {
+    .modal {
+      top: 50px; } }
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #4d4c72;
+  margin: 0 auto;
+  /* 15% from the top and centered */
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #cacaca;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
+  .modal-content ul {
+    padding-top: 8px;
+    padding-bottom: 5px; }
+    .modal-content ul li {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      padding-top: 5px;
+      padding-bottom: 2px;
+      background-color: #6d70bc;
+      padding-left: 5px;
+      padding-right: 5px;
+      border: 1px solid #cacaca;
+      font-size: 10px;
+      text-align: left; }
+      .modal-content ul li:first-child {
+        margin-top: 0; }
+      .modal-content ul li:last-child {
+        margin-bottom: 0; }
+      .modal-content ul li.hidden {
+        display: none; }
+      .modal-content ul li .close-notification {
+        float: right;
+        color: #cacaca; }
+        .modal-content ul li .close-notification:hover {
+          color: #fff; }
+    .modal-content ul .no-notifications {
+      font-style: italic;
+      font-size: 12px;
+      width: 100%; }
+
+/* The Close Button */
+.close {
+  color: #cacaca;
+  float: right;
+  height: 14px;
+  margin-right: -8px;
+  margin-top: 2px; }
+  .close svg {
+    width: 12px;
+    height: 12px; }
+    .close svg .close-icon-background {
+      fill: #cacaca; }
+    .close svg:hover .close-icon-background {
+      fill: #85db81; }
+
+.close:hover,
+.close:focus {
+  color: #fff;
+  text-decoration: none; }
+
 .alert {
   height: 30px;
   margin-top: 20px;
@@ -865,9 +946,10 @@ ul {
     .alert-bar span {
       margin: auto 0;
       text-align: right;
-      font-size: 27px; }
+      font-size: 27px;
+      color: #cacaca; }
       .alert-bar span:hover {
-        color: #85db81;
+        color: #fff;
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); }
 
 .chart-container {
