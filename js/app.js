@@ -260,11 +260,14 @@ textarea.onfocus = function() {
 
 showModal.onclick = function() {
     modal.style.display = 'block';
+    modal.classList.add('clicked');
 }
 
 closeModal.onclick = function() {
     modal.style.display = 'none';
 }
+
+let indicator = document.querySelector('.bell-container');
 
 for (let notice = 0; notice < closeNotification.length; notice++) {
   let span = closeNotification[notice];
@@ -274,6 +277,7 @@ for (let notice = 0; notice < closeNotification.length; notice++) {
     if (clickCount === closeNotification.length){
       notificationList.innerHTML = '<span class="no-notifications">No new notifications</span>';
       alertContainer.classList.add('hidden');
+      indicator.classList.add('hidden');
     }
   }
 }

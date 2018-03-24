@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Martel+Sans:200,300,400,600,700|Roboto:100,300");
 .container {
   font-size: 14px;
@@ -845,19 +846,22 @@ ul {
         margin-top: 36px;
         margin-bottom: 36px; } }
 
-/* The Modal (background) */
 .modal {
   display: none;
-  /* Hidden by default */
   position: absolute;
-  /* Stay in place */
   z-index: 200;
-  /* Sit on top */
   right: 10px;
   top: 50px;
   width: 300px;
-  height: 100%;
+  height: 0;
+  overflow: hidden;
   padding-right: 20px; }
+  .modal.clicked {
+    animation-name: animateheight;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+    height: 100%;
+    overflow: visible; }
   @media only screen and (min-width: 540px) {
     .modal {
       right: auto;
@@ -866,11 +870,16 @@ ul {
     .modal {
       top: 50px; } }
 
-/* Modal Content/Box */
+@keyframes animateheight {
+  from {
+    height: 0;
+    overflow: hidden; }
+  to {
+    height: 100%;
+    overflow: visible; } }
 .modal-content {
   background-color: #4d4c72;
   margin: 0 auto;
-  /* 15% from the top and centered */
   padding-left: 10px;
   padding-right: 10px;
   border: 1px solid #cacaca;
@@ -905,7 +914,6 @@ ul {
       font-size: 12px;
       width: 100%; }
 
-/* The Close Button */
 .close {
   color: #cacaca;
   float: right;
@@ -1101,6 +1109,20 @@ header {
     padding-right: 15px;
     justify-content: flex-end;
     align-items: center; }
+    header .user-alert .bell-container::after {
+      content: "•";
+      font-size: 28px;
+      font-family: sans-serif;
+      font-weight: 700;
+      color: #85db81;
+      border-radius: 100%;
+      position: relative;
+      bottom: 25px;
+      right: 5px;
+      width: 0;
+      height: 0; }
+    header .user-alert .bell-container.hidden::after {
+      content: none; }
     @media only screen and (min-width: 768px) {
       header .user-alert .bell-container {
         flex-grow: 0; } }

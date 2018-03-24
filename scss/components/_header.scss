@@ -30,6 +30,22 @@ header {
       padding-right: 15px;
       @include flex-container(inline-flex, flex-end, $items: center);
       @extend %grow;
+      &::after {
+        content: "•";
+        font-size: 28px;
+        font-family: sans-serif;
+        font-weight: $font-weight--ultra-bold;
+        color: $pastel-green;
+        border-radius: 100%;
+        position: relative;
+        bottom: 25px;
+        right: 5px;
+        width: 0;
+        height: 0;
+      }
+      &.hidden::after {
+        content: none;
+      }
       @include mq(tablet) {
         flex-grow: 0;
       }
@@ -38,6 +54,7 @@ header {
         width: 1.3rem;
         height: 1.3rem;
         fill: $white;
+        
       }
     }
     .active-user {
