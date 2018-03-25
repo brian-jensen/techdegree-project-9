@@ -20,6 +20,9 @@
     @extend %pointer;
     @extend %full-width;
     @extend %rounded-corners;
+    &:hover {
+      @extend %button-hover;
+    }
   }
   .message-user {
     height: 300px;
@@ -37,6 +40,35 @@
       background-color: $alabaster;
       @extend %full-width;
       @extend %input-defaults;
+    }
+    .autocomplete {
+      position: relative;
+      display: inline-block;
+    }
+     input[type=text] {
+      width: 100%;
+    }
+    .autocomplete-items {
+      position: absolute;
+      border: $border--primary;
+      border-bottom: none;
+      border-top: none;
+      z-index: 300;
+      top: 100%;
+      left: 0;
+      right: 0;
+      box-shadow: 1px 1px 3px $color-shadow;
+    }
+    .autocomplete-items div {
+      padding: 10px;
+      background-color: $alabaster; 
+      border-bottom: $border--primary;
+      @extend %pointer;
+    }
+    .autocomplete-active,
+    .autocomplete-items div:hover {
+      color: $white; 
+      background-color: $pastel-green !important; 
     }
     textarea {
       border: $border--primary;
@@ -103,8 +135,14 @@
       @extend %full-width;
       button {
         flex-basis: 45%;
+        &:hover {
+          @extend %button-hover;
+        }
         &:nth-of-type(2) {
           background-color: $silver-chalice;
+          &:hover {
+            box-shadow: inset 3px 2px 3px darken($silver-chalice, 20%);
+          }
         }
       }
       &.notify,

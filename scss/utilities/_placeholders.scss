@@ -165,3 +165,7 @@
 %circle {
   border-radius: $border--circle;
 }
+
+%button-hover {
+  box-shadow: inset 3px 2px 3px darken($color-primary, 20%);
+}

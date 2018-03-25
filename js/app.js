@@ -14,9 +14,9 @@ const showModal = document.getElementById('notification-bell');
 const closeModal = document.querySelector('.close');
 const closeNotification = document.querySelectorAll('.close-notification');
 const notificationList = document.querySelector('.modal-content ul');
-let clickCount = 0;
+let indicator = document.querySelector('.bell-container');
 let li = trafficList.querySelectorAll('li');
-
+let membersList = document.querySelectorAll('.new-members-info-container span');
 let hourlyLabels = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00',
                     '12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00'];
 let hourlyData = [249,120,75,19,22,57,102,222,490,520,652,790,465,701,799,557,1075,1632,3209,2444,2212,1890,1200,590];
@@ -267,8 +267,8 @@ closeModal.onclick = function() {
     modal.style.display = 'none';
 }
 
-let indicator = document.querySelector('.bell-container');
 
+let clickCount = 0;
 for (let notice = 0; notice < closeNotification.length; notice++) {
   let span = closeNotification[notice];
   span.onclick = function() {
@@ -281,3 +281,84 @@ for (let notice = 0; notice < closeNotification.length; notice++) {
     }
   }
 }
+
+// Primary autocomplete search code source: https://www.w3schools.com/howto/howto_js_autocomplete.asp
+function autocomplete(inp, arr) {
+  let currentFocus;
+  inp.addEventListener("input", function(e) {
+      let a, b, i, val = this.value;
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      this.parentNode.appendChild(a);
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          b = document.createElement("DIV");
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          b.addEventListener("click", function(e) {
+            inp.value = this.getElementsByTagName("input")[0].value;
+            closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  inp.addEventListener("keydown", function(e) {
+      let x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        currentFocus++;
+        addActive(x);
+      } else if (e.keyCode == 38) {
+        currentFocus--;
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        e.preventDefault();
+        if (currentFocus > -1) {
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    for (let i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    let x = document.getElementsByClassName("autocomplete-items");
+    for (let i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+}
+
+function memberNames() {
+  let listOfNames = []
+  for (let name = 0; name < membersList.length; name++) {
+    let memberName = membersList[name].textContent;
+    listOfNames.push(memberName);
+    if (listOfNames.length === membersList.length) {
+      return listOfNames;
+    }
+  }
+}
+
+let membersArray = memberNames();
+autocomplete(document.getElementById("memberSearch"), membersArray);

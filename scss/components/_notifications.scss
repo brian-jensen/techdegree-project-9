@@ -17,7 +17,7 @@
   padding-right: 20px;
   &.clicked {
     animation-name: animateheight;
-    animation-duration: 0.4s;
+    animation-duration: 0.5s;
     animation-timing-function: ease-out;
     height: 100%;
     overflow: visible;
@@ -34,11 +34,11 @@
 @keyframes animateheight {
   from {
     height: 0;
-    overflow: hidden
+    opacity: 0.6;
   }
   to {
     height: 100%;
-    overflow: visible
+    opacity: 1;
   }
 }
 

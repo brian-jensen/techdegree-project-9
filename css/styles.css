@@ -113,7 +113,7 @@ header, header h3 {
 .social-container p, .navigation div.grid__col--3 {
   line-height: 0; }
 
-#message-settings button, #member-activity .recent-activity span.or, #member-activity .recent-activity span.gt, #notification-bell, .modal-content ul li .close-notification, .close:hover,
+#message-settings button, #message-settings .message-user .autocomplete-items div, #member-activity .recent-activity span.or, #member-activity .recent-activity span.gt, #notification-bell, .modal-content ul li .close-notification, .close:hover,
 .close:focus, .alert-bar span, .traffic-content .traffic-list-container #traffic-list li:hover, .traffic-content .traffic-list-container #traffic-list li.active {
   cursor: pointer; }
 
@@ -140,6 +140,9 @@ header .user-alert .active-user, header .user-alert .active-user .logged-in {
 
 #member-activity img, header .user-alert .active-user img {
   border-radius: 50%; }
+
+#message-settings button:hover, #message-settings .settings li button:hover {
+  box-shadow: inset 3px 2px 3px #41448c; }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -578,6 +581,29 @@ ul {
         padding-bottom: 50px; } }
     #message-settings .message-user input {
       background-color: #fbfbfb; }
+    #message-settings .message-user .autocomplete {
+      position: relative;
+      display: inline-block; }
+    #message-settings .message-user input[type=text] {
+      width: 100%; }
+    #message-settings .message-user .autocomplete-items {
+      position: absolute;
+      border: 1px solid #cacaca;
+      border-bottom: none;
+      border-top: none;
+      z-index: 300;
+      top: 100%;
+      left: 0;
+      right: 0;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
+    #message-settings .message-user .autocomplete-items div {
+      padding: 10px;
+      background-color: #fbfbfb;
+      border-bottom: 1px solid #cacaca; }
+    #message-settings .message-user .autocomplete-active,
+    #message-settings .message-user .autocomplete-items div:hover {
+      color: #fff;
+      background-color: #85db81 !important; }
     #message-settings .message-user textarea {
       border: 1px solid #cacaca;
       height: 105px;
@@ -637,6 +663,8 @@ ul {
         flex-basis: 45%; }
         #message-settings .settings li button:nth-of-type(2) {
           background-color: #a5a5a5; }
+          #message-settings .settings li button:nth-of-type(2):hover {
+            box-shadow: inset 3px 2px 3px #727272; }
       #message-settings .settings li.notify, #message-settings .settings li.public {
         align-content: flex-start;
         margin-bottom: 20px;
@@ -858,7 +886,7 @@ ul {
   padding-right: 20px; }
   .modal.clicked {
     animation-name: animateheight;
-    animation-duration: 0.4s;
+    animation-duration: 0.5s;
     animation-timing-function: ease-out;
     height: 100%;
     overflow: visible; }
@@ -873,10 +901,10 @@ ul {
 @keyframes animateheight {
   from {
     height: 0;
-    overflow: hidden; }
+    opacity: 0.6; }
   to {
     height: 100%;
-    overflow: visible; } }
+    opacity: 1; } }
 .modal-content {
   background-color: #4d4c72;
   margin: 0 auto;
@@ -1111,13 +1139,11 @@ header {
     align-items: center; }
     header .user-alert .bell-container::after {
       content: "•";
-      font-size: 28px;
-      font-family: sans-serif;
+      font-size: 22px;
       font-weight: 700;
       color: #85db81;
-      border-radius: 100%;
       position: relative;
-      bottom: 25px;
+      bottom: 22px;
       right: 5px;
       width: 0;
       height: 0; }
