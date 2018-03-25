@@ -124,6 +124,10 @@
       padding-top: 0;
       border-left: $border--primary;
       @include row-spacing(null, null, 20px, 50px);
+      // Safari and Chrome fix
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        padding-bottom: 46px;
+      }
     }
     ul {
       margin: 0;
