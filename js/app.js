@@ -1,4 +1,6 @@
 /* jshint esversion: 6 */
+
+// GLOBAL VARIABLES
 const trafficList = document.getElementById('traffic-list');
 const lineChart = document.getElementById('traffic-line-chart');
 const dailyBarChart = document.getElementById('traffic-bar-chart');
@@ -27,6 +29,32 @@ let weeklyLabels = ['Week 1','Week 2','Week 3','Week 4'];
 let weeklyData = [26988,72345,51937,91891];
 let monthlyLabels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 let monthlyData = [212970,361858,232046,602798,722540,187901,587434,377597,513644,489716,843400,501086];
+
+window.onload = function() {
+  form.reset();
+  if (supportsLocalStorage()) {
+    const saveSettings = document.getElementById('saveSettings');
+    const resetSettings = document.getElementById('resetSettings');
+    const emailNotifications = document.getElementById('emailNotifications');
+    const profileToPublic = document.getElementById('profileToPublic');
+    const timeZone = document.getElementById('timeZone');
+    try {
+    JSON.parse(localStorage.getItem('emailNotifications')) ? emailNotifications.checked = true : emailNotifications.checked = false;
+    JSON.parse(localStorage.getItem('profileToPublic')) ? profileToPublic.checked = true : profileToPublic.checked = false;
+    timeZone.selectedIndex = localStorage.getItem('timeZone');
+    } catch(e) {
+      console.log(e);
+    }
+  }
+}
+
+function supportsLocalStorage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch(e){
+    return false;
+  }
+}
 
 function drawLineChart(labels, data) {
   newLineChart = new Chart(lineChart, {
@@ -221,10 +249,6 @@ alertBarClose.onclick = function() {
   alertContainer.classList.add('hidden');
 }
 
-window.onload = function() {
-  form.reset();
-}
-
 sendButton.addEventListener('click', function (e) {
   e.preventDefault();
   const userValidation = document.forms['messageUser']['userName'].value;
@@ -362,3 +386,26 @@ function memberNames() {
 
 let membersArray = memberNames();
 autocomplete(document.getElementById("memberSearch"), membersArray);
+
+saveSettings.addEventListener('click', function(e) {
+  e.preventDefault();
+  localStorage.setItem('emailNotifications', emailNotifications.checked);
+  localStorage.setItem('profileToPublic', profileToPublic.checked);
+  localStorage.setItem('timeZone', timeZone.selectedIndex);
+  saveSettings.style.backgroundColor = '#85db81';
+  saveSettings.style.boxShadow = 'none';
+  saveSettings.textContent = 'SAVED';
+  setTimeout(function () {
+    saveSettings.style.backgroundColor = '';
+    saveSettings.style.boxShadow = '';
+    saveSettings.textContent = 'SAVE';
+  }, 2000);
+});
+
+resetSettings.addEventListener('click', function(e) {
+  e.preventDefault();
+  emailNotifications.checked = false;
+  profileToPublic.checked = false;
+  timeZone.selectedIndex = 0;
+  localStorage.clear();
+});

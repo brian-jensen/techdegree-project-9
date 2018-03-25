@@ -396,14 +396,13 @@
     <span></span>
   </div>
   <div class="grid__col--6 settings">
-    
     <ul>
       <li><h3>Settings</h3></li>
       <li class="notify">
         <p>Send Email Notifications</p>
         <div class="switch-container">
         <label class="switch-light switch-material" onclick="">
-          <input type="checkbox">
+          <input id="emailNotifications" type="checkbox">
           <span>
             <span>Off</span>
             <span>On</span>
@@ -416,7 +415,7 @@
        <p>Set Profile to Public</p>
        <div class="switch-container">
           <label class="switch-light switch-material" onclick="">
-            <input type="checkbox">
+            <input id="profileToPublic"type="checkbox">
             <span>
               <span>Off</span>
               <span>On</span>
@@ -426,7 +425,7 @@
         </div>
       </li>
       <li>
-        <select>
+        <select id="timeZone">
           <option value="" selected disabled>Select Timezone</option>
           <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
           <option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
@@ -513,8 +512,8 @@
         </select>	
       </li>
       <li class="profile-buttons">
-        <button type="submit">Save</button>
-        <button type="reset">Cancel</button>
+        <button id="saveSettings" type="submit">Save</button>
+        <button id="resetSettings" type="reset">Cancel</button>
       </li>
     </ul>
   </div>
