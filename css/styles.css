@@ -548,6 +548,9 @@ ul {
   list-style: none;
   padding: 0; }
 
+sup {
+  left: -0.4em; }
+
 @media only screen and (min-width: 768px) {
   section {
     margin-left: 75px; } }
